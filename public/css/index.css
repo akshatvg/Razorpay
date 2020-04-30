@@ -1,0 +1,32 @@
+/* Black Button */
+.razorpay-black-btn {
+    background: black;
+    color: white;
+    outline: 0;
+    box-shadow: 0;
+    border: none;
+    width: 250px;
+    font-weight: bold;
+    border-radius: 0px;
+}
+
+.razorpay-black-btn:hover {
+    background: whitesmoke;
+    color: black;
+    outline: 0;
+    box-shadow: 0;
+    border: none;
+}
+
+.btn,.btn:focus,.btn:hover{
+    outline: none;
+    box-shadow: none;
+}
+
+html,
+body {
+    background: linear-gradient(#333, #eee);
+    height: 100vh;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+}

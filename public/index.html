@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Razorpay Authentication</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script defer src="/__/firebase/7.14.2/firebase-app.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Heading -->
+  <div class="container p-5 mb-5 mt-5">
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <h1 class="text-white">Pay Using Razorpay</h1>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Payment -->
+  <div class="container p-5 mb-5 mt-5">
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <h4 class="text-center mb-3 text-white">Pay Fixed Amount</h4>
+      </div>
+      <div class="row justify-content-center">
+        <button id="rzp-button1" class="btn razorpay-black-btn">Pay Now</button>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+        <script>
+          var options = {
+            "key": "rzp_live_OyiPTdvmzGIcri",
+            "amount": "500",
+            "currency": "INR",
+            "name": "Akshat Gupta",
+            "description": "Akshat's Payment",
+            "order_id": order,
+            "theme": { "color": "black" }
+          };
+          var rzp1 = new Razorpay(options); document.getElementById('rzp-button1').onclick = function (e) { rzp1.open(); e.preventDefault(); }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="container px-5 mb-5 mt-5">
+    <div class="col-12">
+      <div class="row justify-content-center">
+        <h4 class="text-center mb-3 text-white">Pay How Much Ever You'd Like</h4>
+      </div>
+      <div class="row justify-content-center">
+        <!-- Razorpay Button -->
+        <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_Ekl31s6gdwOCux/view" data-text="Pay Now"
+          data-color="black" data-size="large">
+          <script>
+              (function () {
+                var d = document; var x = !d.getElementById('razorpay-embed-btn-js')
+                if (x) {
+                  var s = d.createElement('script'); s.defer = !0; s.id = 'razorpay-embed-btn-js';
+                  s.src = 'https://cdn.razorpay.com/static/embed_btn/bundle.js'; d.body.appendChild(s);
+                } else {
+                  var rzp = window['__rzp__'];
+                  rzp && rzp.init && rzp.init()
+                }
+              })();
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // // The Firebase SDK is initialized and available here!
+      //
+      // firebase.auth().onAuthStateChanged(user => { });
+      // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+      // firebase.messaging().requestPermission().then(() => { });
+      // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+      //
+      try {
+        let app = firebase.app();
+        let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+        document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+      } catch (e) {
+        console.error(e);
+        document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+      }
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+    integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="../functions/index.js"></script>
+
+</body>
+
+</html>
