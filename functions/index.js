@@ -11,8 +11,4 @@ var razorpay = new Razorpay({
     key_secret: 'hS9UaO0aAj5Yu2Eq3txTaXi8',
 });
 
-razorpay.once('ready', function (response) {
-    console.log(response.methods);
-})
-
-// console.clear();
+console.clear();
