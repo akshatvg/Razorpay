@@ -29,4 +29,5 @@ body {
     height: 100vh;
     padding-top: 10px;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
