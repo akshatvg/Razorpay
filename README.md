@@ -24,10 +24,7 @@ Razorpay API
 The source code of this project is written in **`HTML/CSS/JS, Firebase`**. So, you need to install the `Firebase CLI` to run this project.
 
 ## Instructions
-
-[![chrome](https://img.shields.io/badge/Open-index.html-lightgrey.svg?logo=google-chrome&style=popout&logoColor=red)](https://razorpay.akshatvg.com)
-
-Extract the folder and run `firebase serve`
+Extract the folder and use the command `firebase serve`
 
 
 ## Need help?
